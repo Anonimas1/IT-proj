@@ -21,7 +21,6 @@ class CreateAnimalsTable extends Migration
             $table->string('home_address');
             $table->unsignedBigInteger('state');
             $table->unsignedBigInteger('gender');
-            $table->unsignedBigInteger('post_id');
             $table->timestamps();
 
             $table->foreign('state')->references('id')->on('animal_states');
