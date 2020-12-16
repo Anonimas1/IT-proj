@@ -38,8 +38,12 @@
                                 <a class="nav-item nav-link" href="{{ url('/') }}">Rasti gyvūnai</a>
                                 <a class="nav-item nav-link" href="{{ url('/') }}">Dingę gyvūnai</a>
                                 @auth
-                                <a class="nav-item nav-link" href="{{ url('/post/create') }}">Įdėti skelbimą</a>
-                                <a class="nav-item nav-link" href="{{ url('/users') }}">Naudotojai</a>
+                                @can('create', App\Models\Post::class)
+                                    <a class="nav-item nav-link" href="{{ url('/post/create') }}">Įdėti skelbimą</a>
+                                @endcan
+                                @can('changePermissions', App\Models\User::class)
+                                    <a class="nav-item nav-link" href="{{ url('/users') }}">Naudotojai</a>
+                                @endcan
                                 @endauth
                               </div>
                         </ul>
