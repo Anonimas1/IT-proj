@@ -1,0 +1,21 @@
+.background-color{
+    background-color: rgba(218, 218, 218, 1);
+}
+nav a{
+    color: rgba(15, 2, 63, 0.884);
+}
+
+nav a:hover{
+    color: blue !important;
+}
+
+button.navbar-toggler {
+    border-color: rgba(15, 2, 63, 0.884);
+    border-width: 2px;
+}
+
+thead{
+    background-color: skyblue;
+}
+
+
