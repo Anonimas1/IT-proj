@@ -9,15 +9,20 @@
               <div class="card-body">
                 <h4 class="card-title">
                   <a class="h4" href="/post/{{$animal->post_id}}">{{$animal->name}}</a>
+                @can('viewCount', App\Models\Post::class)
+                    <p>Peržiūrėta: {{$animal->Post->view_count}}</p>
+                @endcan
                 </h4>
                 <p class="card-text">{{$animal->description}}</p>
               </div>
 
               <div class="row card-footer">
-                  <div class = "col">{{$animal->State->name}}</div>
-                <div class ="col">
+                <div class = "col">{{$animal->State->name}}</div>
+                @can('delete', App\Models\Post::class)
+                    <div class ="col">
                     <button class="btn btn-danger" type="button">Šalinti skelbimą</button>
-                </div>
+                    </div>
+                @endcan
               </div>
             </div>
           </div>
