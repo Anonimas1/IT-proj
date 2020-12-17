@@ -1,7 +1,14 @@
 @extends('layouts\main')
 @section('content')
     <div class="container">
-        <div class="row">
+        @if (session('alert'))
+            <div class = "row ml-0">
+                <div class="col alert alert-success">
+                    {{session('alert')}}
+                </div>
+            </div>
+        @endif
+        <div class="row mt-2">
             <table class = "table">
                 <thead>
                     <tr>
@@ -18,7 +25,9 @@
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td><button class= "btn btn-danger">Keisti privilegijas</button></td>
+                            <form method="GET" action="/users/{{$user->id}}/edit">
+                                <td><button class= "btn btn-danger" type="submit">Keisti privilegijas</button></td>
+                            </form>
                         </tr>
                     @endforeach
                 </tbody>
