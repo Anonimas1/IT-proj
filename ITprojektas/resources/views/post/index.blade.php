@@ -4,7 +4,7 @@
 <div class='container mt-3'>
     <div class = "row">
         <div class="col-4">
-            <img class="card-img-top img-fluid" src="http://placehold.it/500x500" alt="">
+            <img class="card-img-top img-fluid" src={{asset($post->Animal->image_path)}} alt="">
         </div>
         <div class="col-8 ml-0">
             <div class="row">
