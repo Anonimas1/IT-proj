@@ -10,15 +10,16 @@
         </div>
     </div>
     @endif
-    <form method="POST" action="store"}>
+    <form method="POST" action="store" enctype="multipart/form-data"}>
         @csrf
+        @method('POST')
         <div class="row">
             <h1 class= "col h2 mt-3">Sukurti naują skelbimą</h1>
         </div>
         <div class = "row mt-3">
             <div class ="col form-group">
                 <label class = "h5" for="image">Įkelkite nuotrauką</label>
-                <input type="file" class="form-control-file" name="image">
+                <input type="file" class="form-control-file" name="image" id="image">
             </div>
         </div>
         <div class ="row">

@@ -9,7 +9,8 @@ use App\Models\AnimalState;
 use App\Models\AnimalType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PostController extends Controller
 {
@@ -30,7 +31,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            //'image_path' =>'required',
+            'image' =>'required|mimes:jpg',
             'description' =>'required',
             'age' =>'required',
             'home_address' =>'required',
@@ -40,8 +41,9 @@ class PostController extends Controller
             'age' => 'required',
             'type' => 'required'
         ]);
+        $image_path = $request->file('image')->store('images');
         $animal = Animal::create([
-            'image_path' => "test path",//$request->image_path,
+            'image_path' => $image_path,
             'description' => $request->description,
             'home_address' => $request->home_address,
             'state' => $request->state,
@@ -68,6 +70,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $animal = Animal::find($post->animal_id);
+        Storage::delete($animal->image_path);
         $comments = $post->Comments;
         foreach($comments as $item){
             $item->delete();
