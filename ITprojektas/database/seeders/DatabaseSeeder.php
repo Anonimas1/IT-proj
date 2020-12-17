@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $roles = ['unregistered', 'registered', 'moderator', 'admin'];
+        $roles = ['unregistered', 'registered', 'moderator', 'admin', 'registered(cannot create posts)'];
         DB::table('roles')->truncate();
         foreach($roles as $role){
             DB::table('roles')->insert([
@@ -57,6 +57,25 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
+        DB::table('permission_role')->insert([
+            'role_id' => 5,
+            'permission_id' => 1
+        ]);
+        DB::table('permission_role')->insert([
+            'role_id' => 5,
+            'permission_id' => 3
+        ]);
+        DB::table('permission_role')->insert([
+            'role_id' => 5,
+            'permission_id' => 4
+        ]);
+        $animalTypes = ['Katė/Katinas', 'Šuo', 'Višta', 'Papūga', 'Jūrų kiaulytė', 'Kita'];
+        DB::table('animal_types')->truncate();
+        foreach($animalTypes as $item){
+            DB::table('animal_types')->insert([
+                'name' => $item
+            ]);
+        };
         DB::table('users')->truncate();
         \App\Models\User::factory(10)->create();
     }
