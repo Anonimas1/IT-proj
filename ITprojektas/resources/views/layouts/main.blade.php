@@ -35,8 +35,8 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                             <div class="navbar-nav nav">
-                                <a class="nav-item nav-link" href="{{ url('/') }}">Rasti gyvūnai</a>
-                                <a class="nav-item nav-link" href="{{ url('/') }}">Dingę gyvūnai</a>
+                                <a class="nav-item nav-link" href="{{ url('/found') }}">Rasti gyvūnai</a>
+                                <a class="nav-item nav-link" href="{{ url('/lost') }}">Dingę gyvūnai</a>
                                 @auth
                                 @can('create', App\Models\Post::class)
                                     <a class="nav-item nav-link" href="{{ url('/post/create') }}">Įdėti skelbimą</a>

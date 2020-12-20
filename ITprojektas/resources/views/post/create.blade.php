@@ -25,13 +25,13 @@
         <div class ="row">
             <div class="col-6 ml-0 form-group">
                 <label class = "h5" for="descriptiob">Gyvūno vardas</label>
-                <textarea class="form-control" name="name" rows="1"></textarea>
+                <textarea class="form-control" name="name" rows="1">{{old('name')}}</textarea>
             </div>
         </div>
         <div class ="row">
             <div class="col-6 ml-0 form-group">
                 <label class = "h5" for="descriptiob">Gyvūno aprašymas</label>
-                <textarea class="form-control" name="description" rows="4"></textarea>
+                <textarea class="form-control" name="description" rows="4">{{old('description')}}</textarea>
             </div>
         </div>
         <div class ="row">
@@ -47,13 +47,13 @@
         <div class ="row">
             <div class="col-6 ml-0 form-group">
                 <label class = "h5" for="age">Gyvūno amžius</label>
-                <input type="number" class="form-control" name="age" rows="1"></textarea>
+                <input type="number" class="form-control" name="age" rows="1" value={{old('age')}}>
             </div>
         </div>
         <div class ="row">
             <div class="col-6 ml-0 form-group">
                 <label class = "h5" for="descriptiob">Gyvūno namų adresas</label>
-                <textarea class="form-control" name="home_address" rows="1"></textarea>
+                <textarea class="form-control" name="home_address" rows="1">{{old('home_address')}}</textarea>
             </div>
         </div>
         <div class = "row">

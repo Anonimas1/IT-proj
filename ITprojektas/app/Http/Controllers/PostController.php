@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Http\Controllers\WatermarkController;
 
 class PostController extends Controller
 {
@@ -41,7 +42,7 @@ class PostController extends Controller
             'age' => 'required',
             'type' => 'required'
         ]);
-        $image_path = $request->file('image')->store('images');
+        $image_path = WatermarkController::AddWatermark($request->file('image')->store('images'));
         $animal = Animal::create([
             'image_path' => $image_path,
             'description' => $request->description,

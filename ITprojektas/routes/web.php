@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/found', [HomeController::class, 'found']);
+Route::get('/lost', [HomeController::class, 'lost']);
 Route::get('post/create', [PostController::class, 'fillDropdown'])->middleware('can:create, App\Models\Post');
 Route::post('post/store', [PostController::class, 'store'])->middleware('can:create, App\Models\Post');
 Route::get('post/{id}', [PostController::class, 'index']);

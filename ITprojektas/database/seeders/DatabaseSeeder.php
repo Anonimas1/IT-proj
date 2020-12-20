@@ -76,7 +76,5 @@ class DatabaseSeeder extends Seeder
                 'name' => $item
             ]);
         };
-        DB::table('users')->truncate();
-        \App\Models\User::factory(10)->create();
     }
 }
